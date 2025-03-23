@@ -1,0 +1,216 @@
+@import url('https://pro.fontawesome.com/releases/v5.10.0/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;800&display=swap');
+@import "tailwindcss";
+
+body {
+          font-family: 'Poppins', sans-serif;
+}
+        .hover\:w-full:hover {
+          width: 100%;
+}
+        .group:hover .group-hover\:w-full {
+          width: 100%;
+}
+        .group:hover .group-hover\:inline-block {
+          display: inline-block;
+}
+        .group:hover .group-hover\:flex-grow {
+          flex-grow: 1;
+}
+
+body{
+  background-color: aliceblue;
+}
+.dragging {
+  opacity: 0.7;
+  transform: scale(1.02);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 50;
+  border: 2px dashed #6366f1 !important;
+}
+
+/* Touch dragging styles */
+.touch-dragging {
+  opacity: 0.8;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  border: 2px dashed #6366f1 !important;
+}
+
+/* Add a transition for smooth animations */
+.task-card {
+  transition: all 0.2s ease-in-out;
+  touch-action: none; /* Prevent default touch actions for better drag handling */
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Add these styles to highlight drag-and-drop functionality */
+.drag-instruction {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(99, 102, 241, 0.9);
+  color: white;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+[draggable="true"]:hover .drag-instruction {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add a visual cue for draggable items */
+[draggable="true"] {
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+[draggable="true"]:hover::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #6366f1;
+  box-shadow: 0 8px 0 #6366f1, 0 16px 0 #6366f1;
+}
+
+/* Style for droppable areas when being dragged over */
+.droppable-hover {
+  background-color: rgba(99, 102, 241, 0.1);
+  border: 2px dashed #6366f1;
+}
+
+/* Custom scrollbar for better UX */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Animation for adding new tasks */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Column header styles */
+.column-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Task count badge */
+.task-count {
+  transition: all 0.2s ease-in-out;
+}
+
+.task-count:hover {
+  transform: scale(1.1);
+}
+
+/* Add a visual indicator for draggable items */
+[draggable="true"]::after {
+  content: "⋮⋮";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 14px;
+  color: #9ca3af;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+[draggable="true"]:hover::after {
+  opacity: 1;
+}
+
+/* Improve horizontal scrolling experience */
+.flex.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding-bottom: 12px;
+}
+
+.flex.overflow-x-auto::-webkit-scrollbar {
+  height: 8px;
+}
+
+.flex.overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.flex.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+.flex.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Status change button styles */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Drag handle styles */
+.drag-handle {
+  cursor: grab;
+  touch-action: none;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+/* Border utility class */
+.border-l-3 {
+  border-left-width: 3px;
+}
+
+

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Vite + React + TS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Telegram Web App yuklanganini tekshirish
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+          if (window.Telegram && window.Telegram.WebApp) {
+            console.log('Telegram Web App yuklandi');
+            window.Telegram.WebApp.ready();
+          } else {
+            console.error('Telegram Web App yuklanmadi');
+          }
+        }, 1000);
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+    
+  </body>
+</html>
